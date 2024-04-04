@@ -15,6 +15,6 @@ class ExchangeData {
     double cny = json['rates']['CNY'] is double
         ? json['rates']['CNY']
         : double.parse(json['rates']['CNY'].toString());
-    return ExchangeData(usd.toString(), time.toString(), cny.toString());
+    return ExchangeData(usd.toString(), cny.toString(), time.toString());
   }
 }

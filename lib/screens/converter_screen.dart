@@ -12,6 +12,7 @@ class ConverterScreen extends StatefulWidget {
 
 class _ConverterScreenState extends State<ConverterScreen> {
   late Future<ExchangeData> exchangeData;
+  CounterFunction counterFunction = CounterFunction();
 
   @override
   void initState() {
@@ -52,22 +53,24 @@ class _ConverterScreenState extends State<ConverterScreen> {
                     child: Padding(
                       padding: EdgeInsets.all(15),
                       child: Text(
-                        getEuroUsdString(snapshot.data!) +
-                            '/n' + getEuroCnyString(snapshot.data!),
+                        counterFunction.getEuroUsdString(snapshot.data!) +
+                            '\n' + counterFunction.getEuroCnyString(snapshot.data!),
                         style: TextStyle(
                           fontFamily: 'Outfit',
                           color: Color(0xFFD4AF37),
                           fontSize: 20,
-                          letterSpacing: 10,
+                          letterSpacing: 1,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                    alignment: Alignment.centerRight,
+                    alignment: Alignment.center,
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      getEuroUsdString(snapshot.data!);
+                      setState(() {
+                        counterFunction.increment();
+                      });
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFFD4AF37),
@@ -75,12 +78,15 @@ class _ConverterScreenState extends State<ConverterScreen> {
                     ),
                     child: Text('Change', style: TextStyle(fontSize: 20)),
                   ),
+                  SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: () {
-                      fetchAndUpdateData(context);
+                      setState(() {
+                        exchangeData = fetchMoney();
+                      });
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFa88b2c),
+                      backgroundColor: Color(0xFFbf5821),
                       foregroundColor: Colors.black,
                     ),
                     child: Text('Refresh', style: TextStyle(fontSize: 20)),
