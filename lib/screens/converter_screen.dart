@@ -70,8 +70,8 @@ class _ConverterScreenState extends State<ConverterScreen> {
                       getEuroUsdString(snapshot.data!);
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFD4AF37),
-                      onPrimary: Colors.black,
+                      backgroundColor: Color(0xFFD4AF37),
+                      foregroundColor: Colors.black,
                     ),
                     child: Text('Change', style: TextStyle(fontSize: 20)),
                   ),
@@ -80,8 +80,8 @@ class _ConverterScreenState extends State<ConverterScreen> {
                       fetchAndUpdateData(context);
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFa88b2c),
-                      onPrimary: Colors.black,
+                      backgroundColor: Color(0xFFa88b2c),
+                      foregroundColor: Colors.black,
                     ),
                     child: Text('Refresh', style: TextStyle(fontSize: 20)),
                   ),
