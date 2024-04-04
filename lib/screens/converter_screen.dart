@@ -52,7 +52,8 @@ class _ConverterScreenState extends State<ConverterScreen> {
                     child: Padding(
                       padding: EdgeInsets.all(15),
                       child: Text(
-                        getEuroUsdString(snapshot.data!),
+                        getEuroUsdString(snapshot.data!) +
+                            '/n' + getEuroCnyString(snapshot.data!),
                         style: TextStyle(
                           fontFamily: 'Outfit',
                           color: Color(0xFFD4AF37),

@@ -11,3 +11,13 @@ String getEuroUsdString(ExchangeData ed) {
     return exEUString;
   }
 }
+
+String getEuroCnyString(ExchangeData ed) {
+  String exECString = '1 EURO = '+ ed.cny + ' CNY';
+  if (exECString == '1 EURO = '+ ed.cny + ' CNY'){
+    exECString = '1 CNY = ' + (1/double.parse(ed.cny)).toString() + ' EURO';
+    return exECString;
+  } else {
+    return exECString;
+  }
+}
